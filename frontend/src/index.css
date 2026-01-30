@@ -1,0 +1,30 @@
+/* ===============================
+File: frontend/src/index.css
+Purpose: Global base CSS (Default CRA styling)
+Features:
+1) Sets default body font stack (system fonts)
+2) Enables font smoothing for better UI rendering
+3) Sets code font family for <code> blocks
+=============================== */
+
+body {
+  /* ✅ Remove default browser margin */
+  margin: 0;
+
+  /* ✅ Default system font stack */
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+
+  /* ✅ Better font rendering in WebKit browsers */
+  -webkit-font-smoothing: antialiased;
+
+  /* ✅ Better font rendering in Firefox on macOS */
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ✅ Default monospace font for code blocks */
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}

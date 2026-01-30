@@ -1,0 +1,512 @@
+/* ===============================
+File: frontend/src/App.css
+Purpose: Global CSS styling for yesSir Project
+Covers:
+1) Global reset + transitions
+2) Background image + frosted glass Home header
+3) Navigation links + logout button styling
+4) Common table default styling
+5) Apply OD card styling
+6) Faculty dashboard table styling
+7) Global animations (page fade, header fade)
+8) Global button + input polish
+9) Attendance table scroll + sticky header helpers
+10) Home login input placeholder styling
+=============================== */
+
+
+/* ======== RESET ========= */
+/* ✅ Remove default margin/padding and apply consistent box sizing */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+/* ===============================
+   SMOOTH TRANSITIONS
+   ✅ Transition only for safe clickable elements
+=============================== */
+a, button, .apply-card, .faculty-table-card, nav a {
+  transition: 0.25s ease;
+}
+
+
+/* ======== MAIN BACKGROUND ========= */
+/* ✅ Background image setup + fixed attachment for nice look */
+body {
+  font-family: "Poppins", sans-serif;
+  
+  background-image: url("./assets/QGChome.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  backdrop-filter: blur(px);
+  min-height: 100vh;
+  color: #333;
+}
+
+
+/* ======== MAIN CARD (Homepage Center Box) ========= */
+/* ✅ Home page frosted glass header container */
+  .App-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  max-width: 360px;
+  margin: 40px auto;
+  padding: 50px 40px;
+  border: #e8e8e8 solid 1px;
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(8px) saturate(100%);
+  -webkit-backdrop-filter: blur(12px) saturate(100%);
+
+  box-shadow:
+    0 24px 60px rgba(0,0,0,0.25),
+    0 10px 20px rgba(0,0,0,0.18);
+}
+
+
+
+
+/* ===============================
+   HOME LOGO / TITLE IMAGE
+   ✅ yesSir logo styling on homepage header
+=============================== */
+.app-logo {
+  width: 340px;       /* responsive */
+  max-width: 90%;
+  margin-bottom: 20px;
+  margin-left: 75px;
+  filter: saturate(1.9) contrast(1.15) brightness(1.48);
+}
+
+
+/* ===============================
+   HOME HEADER PARAGRAPH TEXT
+=============================== */
+.App-header p {
+  margin-top: 10px;
+  font-size: 17px;
+  color: #ffffff;
+}
+
+
+/* ===============================
+   NAVIGATION BAR
+   ✅ Links and layout for nav area
+=============================== */
+nav {
+  margin: 20px 0;
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* ✅ Nav links */
+nav a {
+  background: #ffffff;
+  border: 1px solid #ccc;
+  color: #222;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* ✅ Nav hover effect */
+nav a:hover {
+  background: #ececec;
+}
+
+
+/* ===============================
+   LOGOUT BUTTON (Nav)
+   ✅ Red logout button design
+=============================== */
+nav button {
+  background: #f44336;
+  border: none;
+  color: white;
+  padding: 10px 22px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+nav button:hover {
+  background: #c62828;
+}
+
+
+/* ===============================
+   TABLE DEFAULT (Global)
+   ✅ Common safe table look across the app
+=============================== */
+table {
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  width: 100%;
+}
+
+table th {
+  background: #f0f0f0;
+}
+
+table td, table th {
+  padding: 12px;
+}
+
+/* ✅ Safe row hover effect */
+table tr:hover td {
+  background: #f7f7f7;
+  transition: background 0.25s ease;
+}
+
+/* ✅ Cursor pointer for all buttons */
+button {
+  cursor: pointer;
+}
+
+
+/* =======================
+   APPLY OD CARD
+   (Student Apply OD Page UI)
+   ======================= */
+
+/* ✅ Apply OD page container center alignment */
+.apply-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+/* ✅ Apply OD main card */
+.apply-card {
+  background: white;
+  padding: 40px 35px;
+  width: 90%;
+  max-width: 500px;
+
+  border-radius: 15px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.20);
+  border: 1px solid #ddd;
+}
+
+/* ✅ Inputs inside Apply OD */
+.input-box {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+
+  border: 1px solid #bbb;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+/* ✅ File upload section */
+.input-file {
+  margin-bottom: 20px;
+}
+
+/* ✅ Apply OD submit button */
+.btn-submit {
+  width: 100%;
+  padding: 12px;
+  background: #4a00e0;
+  color: white;
+  border: none;
+
+  border-radius: 8px;
+  font-size: 17px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-submit:hover {
+  background: #3500a8;
+}
+
+
+/* =======================
+   FACULTY DASHBOARD
+   (OD Requests table UI)
+   ======================= */
+
+/* ✅ Faculty wrapper page background */
+.faculty-wrapper {
+  min-height: 100vh;
+  background: #f4f6f9;
+  padding: 40px 30px;
+}
+
+/* ✅ Faculty heading text */
+.faculty-wrapper h2 {
+  font-size: 32px;
+  margin-bottom: 25px;
+  color: #222;
+  font-weight: 700;
+}
+
+/* ✅ Card containing faculty OD table */
+.faculty-table-card {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.10);
+  border: 1px solid #e3e3e3;
+}
+
+/* ✅ Table inside faculty table card */
+.faculty-table-card table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+}
+
+/* ✅ Faculty table header row */
+.faculty-table-card th {
+  background: #eef1f5;
+  padding: 12px;
+  text-align: left;
+  font-weight: 600;
+  color: #333;
+  border-bottom: 2px solid #ddd;
+}
+
+/* ✅ Faculty table data cell */
+.faculty-table-card td {
+  padding: 12px;
+  border-bottom: 1px solid #eee;
+}
+
+/* ✅ Faculty row hover */
+.faculty-table-card tr:hover td {
+  background: #fafafa;
+}
+
+
+/* ===============================
+   TABLE ACTION BUTTONS
+   - Approve / Reject buttons
+=============================== */
+.table-action-btn {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+/* ✅ Approve button style */
+.table-action-btn.approve {
+  background: #1ab65c;
+  color: white;
+}
+
+.table-action-btn.approve:hover {
+  background: #129c4f;
+}
+
+/* ✅ Reject button style */
+.table-action-btn.reject {
+  background: #e63946;
+  color: white;
+  margin-left: 15px;
+}
+
+.table-action-btn.reject:hover {
+  background: #c72c37;
+}
+
+
+/* ===============================
+   PROOF BUTTON (View proof file)
+=============================== */
+.view-proof-btn {
+  background: #457b9d;
+  color: white;
+  padding: 7px 14px;
+  border-radius: 6px;
+  border: none;
+}
+
+.view-proof-btn:hover {
+  background: #35627a;
+}
+
+
+/* ============================= */
+/* GLOBAL SMOOTH TRANSITIONS */
+/* ============================= */
+
+/* ✅ Re-declaring box-sizing (duplicate but kept as-is) */
+* {
+  box-sizing: border-box;
+}
+
+/* ✅ Global body reset (duplicate but kept as-is) */
+body {
+  margin: 0;
+  font-family: "Inter", "Segoe UI", Roboto, sans-serif;
+  background-color: #f7f9fc;
+  color: #0f2a44;
+  scroll-behavior: smooth;
+}
+
+/* ✅ Smooth transition for interactive elements */
+a,
+button,
+input,
+select,
+textarea {
+  transition: all 0.25s ease-in-out;
+}
+
+
+/* ============================= */
+/* PAGE FADE ANIMATION */
+/* ============================= */
+
+/* ✅ Animations applied on all pages using .page class */
+.page {
+  animation: fadeSlide 0.4s ease;
+}
+
+@keyframes fadeSlide {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* ============================= */
+/* HEADER ANIMATION */
+/* ============================= */
+
+/* ✅ Header fade animation on home header */
+.App-header {
+  animation: headerFade 0.4s ease;
+}
+
+@keyframes headerFade {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* ============================= */
+/* BUTTON POLISH */
+/* ============================= */
+
+/* ✅ Global button styling (overrides some button styles above) */
+button {
+  background-color: #1a798a;
+  color: #fff;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* ✅ Button hover effect */
+button:hover {
+  background-color: #156875;
+  transform: translateY(-1px);
+}
+
+/* ✅ Button active press effect */
+button:active {
+  transform: scale(0.97);
+}
+
+
+/* ============================= */
+/* INPUT FOCUS EFFECT */
+/* ============================= */
+
+/* ✅ Global input and textarea styling */
+input,
+textarea {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+/* ✅ Focus glow effect */
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: #1a798a;
+  box-shadow: 0 0 0 2px rgba(26, 121, 138, 0.2);
+}
+
+
+/* ===============================
+   ATTENDANCE TABLE SCROLL LOGIC
+   - Used for tables with fixed height + scroll
+=============================== */
+
+.table-wrapper {
+  max-height: 420px;       /* ~10 rows */
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+/* ✅ Optional smooth scroll */
+.table-wrapper {
+  scroll-behavior: smooth;
+}
+
+/* ✅ Attendance table styling */
+.attendance-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.attendance-table th,
+.attendance-table td {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+  text-align: left;
+  font-size: 14px;
+}
+
+/* ✅ Sticky header for attendance table */
+.attendance-table thead th {
+  position: sticky;
+  top: 0;
+  background: #f7f9fc;
+  z-index: 2;
+}
+
+
+/* ===============================
+   Home.jsx Form Placeholder Styling
+   - Makes placeholder text visible on dark transparent input bg
+=============================== */
+.login-input::placeholder {
+  color: rgba(255, 255, 255, 0.901);
+  opacity: 1;
+}
