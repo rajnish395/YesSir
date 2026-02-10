@@ -14,28 +14,29 @@ const app = express(); // ✅ Create express app instance
 app.use(
   cors({
     origin: (origin, cb) => {
-      const allowed = [
-        process.env.FRONTEND_URL,
-        "http://localhost:3000",
-        "http://127.0.0.1:3000",
-        "http://192.168.0.0:3000", // ❌ useless but ok
-      ].filter(Boolean);
-
-      // ✅ allow Postman / server-to-server (no origin)
+      // allow server-to-server / Postman
       if (!origin) return cb(null, true);
 
-      // ✅ allow any LAN IP:3000 (phone access)
-      if (origin.startsWith("http://192.168.")) return cb(null, true);
-      if (origin.startsWith("http://10.")) return cb(null, true);
-      if (origin.startsWith("http://172.")) return cb(null, true);
+      // allow localhost
+      if (origin === "http://localhost:3000") return cb(null, true);
+      if (origin === "http://127.0.0.1:3000") return cb(null, true);
 
-      if (allowed.includes(origin)) return cb(null, true);
+      // allow LAN (mobile testing)
+      if (
+        origin.startsWith("http://192.168.") ||
+        origin.startsWith("http://10.") ||
+        origin.startsWith("http://172.")
+      ) {
+        return cb(null, true);
+      }
 
-      return cb(new Error("CORS blocked: " + origin));
+      // ❌ DO NOT throw error
+      return cb(null, false);
     },
     credentials: true,
   })
 );
+
 
 
 

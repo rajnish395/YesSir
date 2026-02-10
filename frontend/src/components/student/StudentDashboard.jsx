@@ -252,7 +252,7 @@ setOds(myOD);
 
               {/* Helper message */}
               <p style={styles.helperText}>
-                ✅ Your OD will be reviewed by faculty/coordinator.
+                ✅ Your OD will be reviewed by faculty.
               </p>
             </form>
           </div>
@@ -332,11 +332,7 @@ setOds(myOD);
                 </table>
               </div>
             </div>
-
-            {/* Status explanation note */}
-            <p style={styles.note}>
-              Tip: Approved = green ✅ | Rejected = red ❌ | Pending = yellow ⏳
-            </p>
+            
           </div>
         </div>
       </div>
@@ -414,14 +410,18 @@ html, body {
    TABLE RESPONSIVENESS
 ================================*/
 @media (max-width: 768px) {
-  /* Allow horizontal scroll INSIDE table only */
+  
   .student-content table {
-    min-width: 640px;
+    display: block !important;
+    width: 100% !important;
+    overflow-x: auto !important;
+    white-space: nowrap !important;
+    overflow-y: auto !important;
+
   }
 
-  .student-content [style*="overflowY: auto"] {
+  .student-content .table-wrap {
     overflow-x: auto !important;
-    -webkit-overflow-scrolling: touch;
   }
 }
 

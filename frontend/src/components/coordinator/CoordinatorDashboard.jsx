@@ -305,7 +305,8 @@ export default function CoordinatorDashboard() {
   }
 
   .coordinator-table-scroll {
-    overflow-x: auto;
+   
+    
   }
 
   /* buttons tap friendly */
@@ -399,6 +400,7 @@ export default function CoordinatorDashboard() {
 
   table {
     font-size: 12px;
+
   }
 }
 
@@ -422,6 +424,7 @@ export default function CoordinatorDashboard() {
     padding: 8px 10px !important;
     font-size: 12px !important;
   }
+    
 }
 
       `}</style>

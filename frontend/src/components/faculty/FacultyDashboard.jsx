@@ -537,6 +537,14 @@ export default function FacultyDashboard() {
   table {
     font-size: 12px;
   }
+    .eventTableWrapper {
+    width: 100%;
+    display: block !important;
+    overflow-x: auto !important;
+    white-space: nowrap !important;
+    overflow-y: auto !important;
+
+    
 }
 
 @media (max-width: 480px) {

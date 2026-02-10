@@ -1,22 +1,7 @@
-// ===============================
-// File: frontend/src/components/faculty/EventFormTable.jsx
-// Purpose: Event Submissions Table (Attendance Form Submissions) for yesSir Project
-// Features:
-// 1) Fetch submissions for a given eventId from backend
-// 2) Auto refresh submissions every 5 seconds
-// 3) Shows loading + empty states
-// 4) Fixed column widths (no horizontal scroll) + sticky table header
-// 5) Displays student submission info: Name, QID, Course, Section, Email
-// ===============================
-
 import React, { useEffect, useState, useCallback } from "react";
 import API from "../../services/api"; // ✅ Axios instance for backend requests
 
-/* ===============================
-   TABLE UI STYLES (UI ONLY)
-   - These are constants for table styling
-   - No logic is connected to these, only UI formatting
-=============================== */
+
 
 /* ✅ Table header row styling
    - sticky so header remains visible while scrolling vertically */
@@ -149,6 +134,8 @@ export default function EventFormTable({ eventId }) {
   }
 
   return (
+
+    
     <div style={{ width: "100%" }}>
       {/* ===============================
           TABLE WRAPPER
@@ -270,6 +257,13 @@ export default function EventFormTable({ eventId }) {
           </tbody>
         </table>
       </div>
+      <style>{`
+  @media (max-width: 768px) {
+    
+  }
+`}</style>
+
     </div>
   );
 }
+
